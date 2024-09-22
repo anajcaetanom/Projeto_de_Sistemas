@@ -1,0 +1,15 @@
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\bin\Debug\net8.0\calculadora_c#.exe
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\bin\Debug\net8.0\calculadora_c#.deps.json
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\bin\Debug\net8.0\calculadora_c#.runtimeconfig.json
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\bin\Debug\net8.0\calculadora_c#.dll
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\bin\Debug\net8.0\calculadora_c#.pdb
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\obj\Debug\net8.0\calculadora_c#.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\obj\Debug\net8.0\calculadora_c#.AssemblyInfoInputs.cache
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\obj\Debug\net8.0\calculadora_c#.AssemblyInfo.cs
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\obj\Debug\net8.0\calculadora_c#.csproj.CoreCompileInputs.cache
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\obj\Debug\net8.0\calculadora_c#.sourcelink.json
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\obj\Debug\net8.0\calculadora_c#.dll
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\obj\Debug\net8.0\refint\calculadora_c#.dll
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\obj\Debug\net8.0\calculadora_c#.pdb
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\obj\Debug\net8.0\calculadora_c#.genruntimeconfig.cache
+c:\Users\jucae\repos\Projeto_de_Sistemas\calculadora_c#\obj\Debug\net8.0\ref\calculadora_c#.dll
