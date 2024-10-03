@@ -1,6 +1,8 @@
 package view;
 
 import dto.RequestDTO;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CalculatorView {
@@ -25,9 +27,14 @@ public class CalculatorView {
         System.out.print(message);
     }
 
-    public float getUserInput() {
+    public float getUserInput() throws InputMismatchException {
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextFloat();
+        try {
+            return scanner.nextFloat();
+        } catch (InputMismatchException e) {
+            System.out.println("nao pode letra porra");
+        }
+        return 0;
     }
 
     public RequestDTO showInterfaceAndCollectInput() {
