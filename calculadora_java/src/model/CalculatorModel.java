@@ -7,7 +7,7 @@ public class CalculatorModel {
         return valor1 + valor2;
     }
 
-    public float diminuir (float valor1, float valor2) {
+    public float subtrair (float valor1, float valor2) {
         return valor1 - valor2;
     }
 
@@ -15,10 +15,11 @@ public class CalculatorModel {
         return valor1 * valor2;
     }
 
-    public float dividir (float valor1, float valor2) throws Exception {
+    public float dividir (float valor1, float valor2) throws ArithmeticException {
         if (valor2 == 0) {
-            throw new ArithmeticException("Denominador não pode ser zero.");
+            throw new ArithmeticException("nao pode zeroooooo");
+        } else {
+            return valor1 / valor2;
         }
-        return valor1 / valor2;
     }
 }
