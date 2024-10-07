@@ -10,17 +10,12 @@ public class Main {
         CalculatorView view = new CalculatorView();
         CalculatorModel model = new CalculatorModel();
 
-        RequestDTO requestDTO = view.showInterfaceAndCollectInput();
-
-        CalculatorController controller = new CalculatorController(requestDTO, model);
-
-        try {
-            float resultado = controller.calculate();
-            System.out.println("Resultado: " + resultado);
-        } catch (ArithmeticException e) {
-            System.out.println("zero nao podeee");
+        if (view.showInterfaceAndCollectInput() != null) {
+            RequestDTO requestDTO = view.showInterfaceAndCollectInput();
+            CalculatorController controller = new CalculatorController(requestDTO, model);
+            if (controller.calculate() != null) {
+                System.out.println("Resultado: " + controller.calculate());
+            }
         }
-
-
     }
 }

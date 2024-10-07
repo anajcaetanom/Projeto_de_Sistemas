@@ -10,16 +10,17 @@ public class CalculatorView {
 
     public void showMenu() {
 
-        System.out.print(
-                """
-                ✦•···········• JAVA CALCULATOR •···········•✦
-                
-                1. Addition
-                2. Subtraction
-                3. Multiplication
-                4. Division
-                
-                Pick a number: """
+        System.out.print("""
+               ✦•···········• JAVA CALCULATOR •···········•✦
+               \s
+               1. Addition
+               2. Subtraction
+               3. Multiplication
+               4. Division
+               0. Sair
+               \s
+               Pick a number:\s
+               """
         );
     }
 
@@ -29,15 +30,17 @@ public class CalculatorView {
 
     public float getUserInput() throws InputMismatchException {
         Scanner scanner = new Scanner(System.in);
+
         try {
             return scanner.nextFloat();
         } catch (InputMismatchException e) {
-            System.out.println("nao pode letra porra");
+            System.out.println("nao pode letra .");
         }
+
         return 0;
     }
 
-    public RequestDTO showInterfaceAndCollectInput() {
+    public void showInterfaceAndCollectInput() {
         showMenu();
 
         float option = getUserInput();
@@ -49,15 +52,26 @@ public class CalculatorView {
 
         if (option == 0) {
             System.out.println("tchau");
-            return null;
         } else {
             showMessage("Type first number: ");
             float number1 = getUserInput();
+            while (number1 == 0) {
+                showMessage("Type first number: ");
+                number1 = getUserInput();
+            }
             showMessage("Type second number: ");
             float number2 = getUserInput();
+            while (number2 == 0) {
+                showMessage("Type second number: ");
+                number2 = getUserInput();
+            }
 
-            return new RequestDTO(option, number1, number2);
+            createRequestDTO(option, number1, number2);
         }
+    }
+
+    public RequestDTO createRequestDTO(float option,float number1,float number2) {
+        return new RequestDTO(option, number1, number2);
     }
 
 

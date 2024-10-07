@@ -16,7 +16,7 @@ public class CalculatorModel {
 
     public float dividir (float valor1, float valor2) throws ArithmeticException {
         if (valor2 == 0) {
-            throw new ArithmeticException("nao pode zeroooooo");
+            throw new ArithmeticException();
         } else {
             return valor1 / valor2;
         }
