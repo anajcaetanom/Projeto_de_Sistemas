@@ -1,14 +1,15 @@
 package controller;
 
 import dto.RequestDTO;
-import model.CalculatorModel;
+import classloader.ClassLoader;
+import java.lang.reflect.*;
 
 public class CalculatorController {
-    private CalculatorModel model;
     private RequestDTO requestDTO;
+    private ClassLoader classLoader;
 
-    public CalculatorController(RequestDTO requestDTO, CalculatorModel model) {
-        this.model = model;
+    public CalculatorController(RequestDTO requestDTO, ClassLoader classLoader) {
+        this.classLoader = classLoader;
         this.requestDTO = requestDTO;
     }
 

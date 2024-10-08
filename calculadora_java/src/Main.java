@@ -1,3 +1,4 @@
+import classloader.ClassLoader;
 import controller.CalculatorController;
 import dto.RequestDTO;
 import model.CalculatorModel;
@@ -7,6 +8,7 @@ import java.util.InputMismatchException;
 
 public class Main {
     public static void main(String[] args) {
+        ClassLoader classLoader = new ClassLoader();
         CalculatorView view = new CalculatorView();
         CalculatorModel model = new CalculatorModel();
 

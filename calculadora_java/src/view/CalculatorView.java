@@ -9,6 +9,7 @@ public class CalculatorView {
 
 
     public void showMenu() {
+        //reflection: varre as classes IOperation e monta o menu
 
         System.out.print("""
                ✦•···········• JAVA CALCULATOR •···········•✦
