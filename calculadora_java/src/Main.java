@@ -13,6 +13,9 @@ public class Main {
         // CalculatorController controller = new CalculatorController(requestDTO, classLoader);
 
         List<Class<?>> operationsList = classLoader.loadOperations();
+        for (Class<?> operation : operationsList) {
+            System.out.println(operation.getName());
+        }
 
 
     }

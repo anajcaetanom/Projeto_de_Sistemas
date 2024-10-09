@@ -10,6 +10,7 @@ public class ClassLoader {
         String packageName = "model.operations";
         // String packagePath = packageName.replace(".", File.separator);
 
+        // Por algum motivo só tá funcionando com o endereço absoluto.
         File directory = new File("C:\\Users\\jucae\\IdeaProjects\\Projeto_de_Sistemas\\calculadora_java\\src\\model\\operations");
 
         List<Class<?>> operations = new ArrayList<>();
