@@ -1,4 +1,4 @@
-package model.operations;
+package src.model;
 
 public interface IOperation {
 

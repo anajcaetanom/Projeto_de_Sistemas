@@ -41,7 +41,7 @@ public class CalculatorView {
         return 0;
     }
 
-    public void showInterfaceAndCollectInput() {
+    public RequestDTO showInterfaceAndCollectInput() {
         showMenu();
 
         float option = getUserInput();
@@ -67,12 +67,10 @@ public class CalculatorView {
                 number2 = getUserInput();
             }
 
-            createRequestDTO(option, number1, number2);
+            return new RequestDTO(option, number1, number2);
         }
-    }
 
-    public RequestDTO createRequestDTO(float option,float number1,float number2) {
-        return new RequestDTO(option, number1, number2);
+        return null;
     }
 
 

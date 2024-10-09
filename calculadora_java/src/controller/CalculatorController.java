@@ -12,11 +12,13 @@ public class CalculatorController {
         this.classLoader = classLoader;
         this.requestDTO = requestDTO;
     }
-
+/*
     public Float calculate() {
         int optionInt = (int) requestDTO.getOption();
         float number1 = requestDTO.getNumber1();
         float number2 = requestDTO.getNumber2();
+
+
 
         try {
             return switch (optionInt) {
@@ -27,10 +29,10 @@ public class CalculatorController {
                 default -> throw new IllegalStateException();
             };
         } catch (ArithmeticException e) {
-            System.out.print("não pode divisão por zeroooo");
+            System.out.print("não pode divisão por zeroooo >:(");
         }
 
         return null;
     }
-
+*/
 }

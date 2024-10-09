@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClassLoader {
-    public void loadOperations() {
-        String packageName = "model.operations";
-        String packagePath = packageName.replace('.', '/');
 
-        File directory = new File("src/" + packagePath);
+    public List<Class<?>> loadOperations() {
+        String packageName = "model.operations";
+        // String packagePath = packageName.replace(".", File.separator);
+
+        File directory = new File("C:\\Users\\jucae\\IdeaProjects\\Projeto_de_Sistemas\\calculadora_java\\src\\model\\operations");
 
         List<Class<?>> operations = new ArrayList<>();
 
@@ -17,8 +18,8 @@ public class ClassLoader {
             File[] files = directory.listFiles();
             if (files != null) {
                 for (File file : files) {
-                    if (file.getName().endsWith(".class")) {
-                        String className = packageName + '.' + file.getName().replace(".class", "");
+                    if (file.getName().endsWith(".java")) {
+                        String className = packageName + '.' + file.getName().replace(".java", "");
                         try {
                             Class<?> clazz = Class.forName(className);
                             operations.add(clazz);
@@ -28,10 +29,11 @@ public class ClassLoader {
                     }
                 }
             }
+        } else {
+            System.out.print("Directory does not exist.");
         }
 
-        for (Class<?> clazz : operations) {
-            System.out.println(clazz.getName());
-        }
+        return operations;
+
     }
 }

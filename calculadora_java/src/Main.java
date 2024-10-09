@@ -1,23 +1,29 @@
 import classloader.ClassLoader;
-import controller.CalculatorController;
 import dto.RequestDTO;
-import model.CalculatorModel;
 import view.CalculatorView;
 
-import java.util.InputMismatchException;
+import java.util.List;
+
 
 public class Main {
     public static void main(String[] args) {
         ClassLoader classLoader = new ClassLoader();
         CalculatorView view = new CalculatorView();
-        CalculatorModel model = new CalculatorModel();
+        // RequestDTO requestDTO = view.showInterfaceAndCollectInput();
+        // CalculatorController controller = new CalculatorController(requestDTO, classLoader);
 
-        if (view.showInterfaceAndCollectInput() != null) {
-            RequestDTO requestDTO = view.showInterfaceAndCollectInput();
-            CalculatorController controller = new CalculatorController(requestDTO, model);
-            if (controller.calculate() != null) {
-                System.out.println("Resultado: " + controller.calculate());
-            }
-        }
+        List<Class<?>> operationsList = classLoader.loadOperations();
+
+
     }
 }
+
+/*
+if (view.showInterfaceAndCollectInput() != null) {
+    RequestDTO requestDTO = view.showInterfaceAndCollectInput();
+    CalculatorController controller = new CalculatorController(requestDTO, model);
+    if (controller.calculate() != null) {
+        System.out.println("Resultado: " + controller.calculate());
+    }
+}
+*/
