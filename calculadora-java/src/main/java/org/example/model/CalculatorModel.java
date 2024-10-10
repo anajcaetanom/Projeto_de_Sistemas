@@ -22,8 +22,8 @@ public class CalculatorModel {
 
         classList.sort((c1, c2) -> {
             try {
-                IOperation instance1 = (IOperation) c1.getDeclaredConstructor().newInstance();
-                IOperation instance2 = (IOperation) c2.getDeclaredConstructor().newInstance();
+                IOperation instance1 = c1.getDeclaredConstructor().newInstance();
+                IOperation instance2 = c2.getDeclaredConstructor().newInstance();
 
                 int value1 = instance1.getId();
                 int value2 = instance2.getId();

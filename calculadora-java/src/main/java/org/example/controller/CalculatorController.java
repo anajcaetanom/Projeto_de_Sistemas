@@ -30,11 +30,11 @@ public class CalculatorController {
 
         try {
             for (Class<? extends IOperation> clazz : classList) {
-                IOperation instance = (IOperation) clazz.getDeclaredConstructor().newInstance();
+                IOperation instance = clazz.getDeclaredConstructor().newInstance();
                 int id = instance.getId();
                 if (option == id) {
                     return instance;
-                };
+                }
             }
         } catch (NoSuchMethodException | InstantiationException |
                  IllegalAccessException | InvocationTargetException e) {

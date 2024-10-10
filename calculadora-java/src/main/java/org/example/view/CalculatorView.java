@@ -2,7 +2,6 @@ package org.example.view;
 
 import org.example.model.dto.RequestDTO;
 import org.example.model.operations.IOperation;
-import org.reflections.Reflections;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
@@ -14,7 +13,7 @@ public class CalculatorView {
         System.out.println("✦•···········• JAVA CALCULATOR •···········•✦\n");
         try {
             for (Class<? extends IOperation> clazz : sortedClassList) {
-                IOperation instance = (IOperation) clazz.getDeclaredConstructor().newInstance();
+                IOperation instance = clazz.getDeclaredConstructor().newInstance();
                 int id = instance.getId();
                 System.out.println(id + ": " + clazz.getSimpleName());
             }
@@ -22,6 +21,7 @@ public class CalculatorView {
                  InvocationTargetException | InstantiationException e) {
             System.out.println("erro");
         }
+        System.out.print("0: Sair");
 
         System.out.print("\nPick a number: ");
 
