@@ -1,10 +1,17 @@
 package org.example.model.operations;
 
 public class Multiplication implements IOperation {
-    private static final int id = 3;
+    private int id;
 
-    public float multiplicar (float valor1, float valor2) {
+    public Multiplication() {
+        this.id = 3;
+    }
+
+    public float operate (float valor1, float valor2) {
         return valor1 * valor2;
     }
 
+    public int getId() {
+        return id;
+    }
 }

@@ -4,28 +4,30 @@ import org.example.model.dto.RequestDTO;
 import org.example.model.operations.IOperation;
 import org.reflections.Reflections;
 
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import java.lang.reflect.InvocationTargetException;
+import java.util.*;
 
 public class CalculatorView {
 
+    public void dynamicMenu(List<Class<? extends IOperation>> sortedClassList) {
 
-    public void dynamicMenu() {
-
-        Reflections reflections = new Reflections("org.example.model.operations");
-
-        Set<Class<? extends IOperation>> classes = reflections.getSubTypesOf(IOperation.class);
-
-        for (Class<? extends IOperation> clazz : classes) {
-            System.out.println("Classe que implementa IOperation: " + clazz.getSimpleName());
+        System.out.println("✦•···········• JAVA CALCULATOR •···········•✦\n");
+        try {
+            for (Class<? extends IOperation> clazz : sortedClassList) {
+                IOperation instance = (IOperation) clazz.getDeclaredConstructor().newInstance();
+                int id = instance.getId();
+                System.out.println(id + ": " + clazz.getSimpleName());
+            }
+        } catch (NoSuchMethodException | IllegalAccessException |
+                 InvocationTargetException | InstantiationException e) {
+            System.out.println("erro");
         }
+
+        System.out.print("\nPick a number: ");
 
     }
 
     public void showMenu() {
-        //reflection: varre as classes IOperation e monta o menu
 
         System.out.print("""
                ✦•···········• JAVA CALCULATOR •···········•✦
@@ -57,9 +59,7 @@ public class CalculatorView {
         return 0;
     }
 
-    public RequestDTO showInterfaceAndCollectInput() {
-        showMenu();
-
+    public RequestDTO collectInput() {
         float option = getUserInput();
 
         while (option < 0 || option > 4) {
