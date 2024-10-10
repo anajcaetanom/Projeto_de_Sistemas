@@ -1,6 +1,4 @@
-package model.operations;
-
-import src.model.IOperation;
+package org.example.model.operations;
 
 public class Addition implements IOperation {
     private static final int id = 1;

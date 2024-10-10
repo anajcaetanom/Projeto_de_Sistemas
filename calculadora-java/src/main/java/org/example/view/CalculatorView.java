@@ -1,18 +1,28 @@
-package view;
+package org.example.view;
 
-import classloader.ClassLoader;
-import dto.RequestDTO;
+import org.example.model.dto.RequestDTO;
+import org.example.model.operations.IOperation;
+import org.reflections.Reflections;
 
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class CalculatorView {
 
 
-    //public int dynamicMenu(List<Class<?>> operations) {
+    public void dynamicMenu() {
 
-    //}
+        Reflections reflections = new Reflections("org.example.model.operations");
+
+        Set<Class<? extends IOperation>> classes = reflections.getSubTypesOf(IOperation.class);
+
+        for (Class<? extends IOperation> clazz : classes) {
+            System.out.println("Classe que implementa IOperation: " + clazz.getSimpleName());
+        }
+
+    }
 
     public void showMenu() {
         //reflection: varre as classes IOperation e monta o menu

@@ -1,8 +1,6 @@
-package controller;
+package org.example.controller;
 
-import dto.RequestDTO;
-import classloader.ClassLoader;
-import java.lang.reflect.*;
+import org.example.model.dto.RequestDTO;
 
 public class CalculatorController {
     private RequestDTO requestDTO;

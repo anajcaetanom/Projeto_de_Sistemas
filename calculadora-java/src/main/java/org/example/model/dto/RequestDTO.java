@@ -1,4 +1,4 @@
-package dto;
+package org.example.model.dto;
 
 public class RequestDTO {
     private float option;
