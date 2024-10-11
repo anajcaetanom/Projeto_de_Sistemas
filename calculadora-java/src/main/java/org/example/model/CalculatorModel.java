@@ -32,7 +32,7 @@ public class CalculatorModel {
 
             } catch (IllegalAccessException | InstantiationException |
                      NoSuchMethodException | InvocationTargetException e) {
-                e.printStackTrace();
+                System.out.print("erro no sort");
                 return 0;
             }
         });

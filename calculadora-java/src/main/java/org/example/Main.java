@@ -15,6 +15,6 @@ public class Main {
         RequestDTO dto = controller.showMenuAndGetInput();
         Float resultado = controller.calculate(dto);
 
-        System.out.print(resultado);
+        System.out.println("Resultado: " + resultado);
     }
 }

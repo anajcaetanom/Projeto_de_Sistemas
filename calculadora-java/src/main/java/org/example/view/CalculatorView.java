@@ -43,10 +43,6 @@ public class CalculatorView {
         );
     }
 
-    public void showMessage(String message) {
-        System.out.print(message);
-    }
-
     public float getUserInput() throws InputMismatchException {
         Scanner scanner = new Scanner(System.in);
 
@@ -70,16 +66,17 @@ public class CalculatorView {
         if (option == 0) {
             System.out.println("tchau");
         } else {
-            showMessage("Type first number: ");
+            System.out.println("Type first number: ");
             float number1 = getUserInput();
             while (number1 == 0) {
-                showMessage("Type first number: ");
+                System.out.println("Type first number: ");
                 number1 = getUserInput();
             }
-            showMessage("Type second number: ");
+            System.out.println("Type second number: ");
             float number2 = getUserInput();
             while (number2 == 0) {
-                showMessage("Type second number: ");
+                System.out.println("nao pode dividir por zero.");
+                System.out.print("Type second number: ");
                 number2 = getUserInput();
             }
 
