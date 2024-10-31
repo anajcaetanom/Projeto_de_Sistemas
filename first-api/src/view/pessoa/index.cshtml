@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    @model IEnumerable<first-api.src.model.Pessoa>
+
+    <h1> Pessoas </h1>
+
+    <p>
+        <a asp-action="Create"> Adicionar Pessoa </a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Email</th>
+                <th>Endereços</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(var pessoa in Model)
+            {
+                <tr>
+                    <td>@pessoa.Nome</td>
+                    <td>@pessoa.Idade</td>
+                    <td>@pessoa.Email</td>
+                    <td>
+                        @if (pessoa.Enderecos.count > 0)
+                        {
+                            <ul>
+                                @foreach(var endereco in pessoa.Enderecos)
+                                {
+                                    <li>@endereco.Logradouro, @endereco.Numero, @endereco.Cidade - @endereco.Estado</li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <span> Nenhum endereço cadastrado. </span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@pessoa.Id">Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
