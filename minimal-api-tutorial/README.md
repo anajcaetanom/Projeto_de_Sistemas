@@ -1,0 +1,2 @@
+﻿## Crie uma API usando Minimal API e MVC
+Crie um API para cadastrar uma pessoa (Nome, Idade e email) e seus endereços (Logradouro, número, estado (UF), cidade e Bairro). Uma pessoa pode ter mais de um endereço. A API deve ter um rota para cadastrar Pessoa e outra para Endereço. Ao cadastrar o Endereço deve ser enviado o ID da pessoa e ao listar uma pessoa, a API deve trazer os dados da pessoa e a lista de endereço.
