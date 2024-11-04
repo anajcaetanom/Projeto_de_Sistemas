@@ -10,19 +10,51 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
         builder.Services.AddDbContext<PessoaEnderecoDb> (
-            opt => opt.UseInMemoryDatabase("PessoaEndereco")
-            );
+            opt => opt.UseInMemoryDatabase("PessoaEndereco"));
         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+        
+        // Swagger
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddOpenApiDocument(config =>
+        {
+            config.DocumentName = "minimal-api-tutorial";
+            config.Title = "minimal-api-tutorial v1";
+            config.Version = "v1";
+        });
+        
+        // Build app
         var app = builder.Build();
+        
+        // Swagger
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseOpenApi();
+            app.UseSwaggerUi(config =>
+            {
+                config.DocumentTitle = "minimal-api-tutorial";
+                config.Path = "/swagger";
+                config.DocumentPath = "/swagger/minimal-api-tutorial/swagger.json";
+                config.DocExpansion = "list";
+            });
+        }
         
         // GET todas as pessoas
         app.MapGet("/pessoas", async (PessoaEnderecoDb db) =>
-            db.Pessoas.ToListAsync());
+        {
+            var pessoas = await db.Pessoas
+                .Include(p => p.Enderecos)
+                .ToListAsync();
+
+            return Results.Ok(pessoas);
+        });
         
         // GET pessoa específica
         app.MapGet("pessoas/{id}", async (PessoaEnderecoDb db, int id) =>
         {
-            var pessoa = await db.Pessoas.FindAsync(id);
+            var pessoa = await db.Pessoas
+                .Include(p => p.Enderecos)
+                .FirstOrDefaultAsync(p => p.Id == id);
+            
             if (pessoa is not null)
                 return Results.Ok(pessoa);
             else
@@ -58,6 +90,7 @@ public class Program
                 pessoa.Nome = pessoaInput.Nome;
                 pessoa.Idade = pessoaInput.Idade;
                 pessoa.Email = pessoaInput.Email;
+                pessoa.Enderecos = pessoaInput.Enderecos;
                 
                 await db.SaveChangesAsync();
 
@@ -73,11 +106,12 @@ public class Program
                 return Results.NotFound();
             else
             {
-                endereco.Logradouro = enderecoInput.Logradouro;
+                endereco.Rua = enderecoInput.Rua;
                 endereco.Numero = enderecoInput.Numero;
                 endereco.Estado = enderecoInput.Estado;
                 endereco.Cidade = enderecoInput.Cidade;
                 endereco.Bairro = enderecoInput.Bairro;
+                endereco.PessoaId = enderecoInput.PessoaId;
                 
                 await db.SaveChangesAsync();
                 
